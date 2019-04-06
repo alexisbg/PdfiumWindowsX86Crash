@@ -1,0 +1,23 @@
+# Build arguments go here.
+# See "gn args <out_dir> --list" for available build arguments.
+
+use_goma = false  # Googlers only. Make sure goma is installed and running first.
+is_debug = false  # Enable debugging features.
+
+# Set true to enable experimental Skia backend.
+pdf_use_skia = false
+# Set true to enable experimental Skia backend (paths only).
+pdf_use_skia_paths = false
+
+pdf_enable_xfa = false  # Set false to remove XFA support (implies JS support).
+pdf_enable_v8 = false  # Set false to remove Javascript support.
+pdf_is_standalone = true  # Set for a non-embedded build.
+is_component_build = false  # Static build requires false
+
+clang_use_chrome_plugins = false  # Currently must be false.
+
+#is_clang = false  # Use MSVC instead of Clang
+pdf_is_complete_lib = true  # Build a complete static library
+use_custom_libcxx = false  # Do not incluse PDFium custom libc++
+is_official_build = true  #  Enables an additional level of optimization
+symbol_level = 0  # Build without symbols
