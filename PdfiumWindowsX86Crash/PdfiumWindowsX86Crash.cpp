@@ -49,7 +49,18 @@ int main()
 		int height = 3500;
 		int channels = 4;
 
-		char* buffer = new char[width * height * 4];
+		char* buffer;
+		try
+		{
+			buffer = new char[width * height * channels];
+		}
+		catch (const bad_alloc& e)
+		{
+			printf("\n[ERROR] FPDFBitmap_CreateEx buffer allocation failed: %s\n", e.what());
+			printProcessMemoryInfo();
+			break;
+		}
+
 		FPDF_BITMAP bmp = FPDFBitmap_CreateEx(width, height, FPDFBitmap_BGRA, buffer, width * channels);
 
 		unsigned long errId = FPDF_GetLastError();
