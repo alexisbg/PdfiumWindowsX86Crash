@@ -43,6 +43,8 @@ int main()
     // FPDFBitmap_CreateEx
     printf("\nFPDFBitmap_CreateEx\n");
 
+    SetLastError(0);  // Reset error
+
     for (int i = 0; i < 100; i++)
     {
         printf("%d ", i);
